@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reasignación de Turnos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Listado de Turnos</h1>
+  <table id="tablaTurnos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Paciente</th>
+        <th>Clínica</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Reasignar Turno</h2>
+
+      <label>Nueva Clínica:</label><br>
+      <select id="nuevaClinica">
+        <option>Clínica A</option>
+        <option>Clínica B</option>
+        <option>Clínica C</option>
+      </select><br><br>
+
+      <label>Motivo de la reasignación:</label><br>
+      <textarea id="motivo"></textarea><br>
+
+      <button id="guardarBtn">Guardar</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
