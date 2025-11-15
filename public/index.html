@@ -1,41 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Reasignación de Turnos</title>
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gradient-to-r from-purple-700 to-purple-900 min-h-screen">
 
-  <h1>Listado de Turnos</h1>
-  <table id="tablaTurnos">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Paciente</th>
-        <th>Clínica</th>
-        <th>Acción</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h2>Reasignar Turno</h2>
+  <div class="max-w-5xl mx-auto mt-10">
+    <h1 class="text-3xl font-bold text-white mb-6 text-center">Gestión de Turnos</h1>
 
-      <label>Nueva Clínica:</label><br>
-      <select id="nuevaClinica">
+    <div class="bg-white rounded-xl shadow p-6">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="p-3 text-left">ID</th>
+            <th class="p-3 text-left">Paciente</th>
+            <th class="p-3 text-left">Clínica</th>
+            <th class="p-3 text-center">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaTurnos" class="divide-y divide-gray-200"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-xl w-96 shadow-xl animate-scale">
+
+      <h2 class="text-xl font-semibold mb-4">Reasignar Turno</h2>
+
+      <label class="font-medium">Nueva Clínica</label>
+      <select id="nuevaClinica" class="w-full mt-1 mb-3 p-2 border rounded">
         <option>Clínica A</option>
         <option>Clínica B</option>
         <option>Clínica C</option>
-      </select><br><br>
+      </select>
 
-      <label>Motivo de la reasignación:</label><br>
-      <textarea id="motivo"></textarea><br>
+      <label class="font-medium">Motivo de la reasignación</label>
+      <textarea id="motivo" rows="3"
+        class="w-full mt-1 p-2 border rounded mb-4" placeholder="Escribe el motivo..."></textarea>
 
-      <button id="guardarBtn">Guardar</button>
-      <button onclick="cerrarModal()">Cancelar</button>
+      <div class="flex justify-end gap-3">
+        <button onclick="cerrarModal()"
+          class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">
+          Cancelar
+        </button>
+        
+        <button id="guardarBtn"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Guardar
+        </button>
+      </div>
     </div>
   </div>
 

@@ -3,17 +3,20 @@ let turnoIdSeleccionado = null;
 async function cargarTurnos() {
   const res = await fetch("/turnos");
   const turnos = await res.json();
-  const tbody = document.querySelector("#tablaTurnos tbody");
+  const tbody = document.getElementById("tablaTurnos");
   tbody.innerHTML = "";
 
   turnos.forEach(t => {
     tbody.innerHTML += `
-      <tr>
-        <td>${t.id}</td>
-        <td>${t.paciente}</td>
-        <td>${t.clinica}</td>
-        <td>
-          <button onclick="abrirModal(${t.id})">Reasignar</button>
+      <tr class="hover:bg-gray-100">
+        <td class="p-3">${t.id}</td>
+        <td class="p-3">${t.paciente}</td>
+        <td class="p-3">${t.clinica}</td>
+        <td class="p-3 text-center">
+          <button onclick="abrirModal(${t.id})"
+            class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">
+            Reasignar
+          </button>
         </td>
       </tr>
     `;
@@ -22,11 +25,11 @@ async function cargarTurnos() {
 
 function abrirModal(id) {
   turnoIdSeleccionado = id;
-  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal").classList.remove("hidden");
 }
 
 function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
+  document.getElementById("modal").classList.add("hidden");
 }
 
 document.getElementById("guardarBtn").onclick = async () => {
